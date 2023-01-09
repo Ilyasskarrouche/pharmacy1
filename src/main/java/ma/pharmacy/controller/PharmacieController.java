@@ -87,5 +87,12 @@ public class PharmacieController {
 
 		return service.refusPharmacie(id);
 	}
+	
+	@GetMapping("/gardeAndZoneId/{id}/{zone_id}")
+	public List<Pharmacie> getPharmaciebyGardeAndZone(@PathVariable int id,@PathVariable int zone_id) {
+		return repository.findAllPharmacieEnGardeByGardeId(id,zone_id);
+
+	}
+
 
 }

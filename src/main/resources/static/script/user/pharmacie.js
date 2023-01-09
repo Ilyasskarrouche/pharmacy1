@@ -58,7 +58,28 @@ $(document)
 						
 					});		
 					
-											
+							$("#ville").change(function () {
+
+						$.ajax({
+							url:'/villes/zonesbyville/'+$("#ville").val(),
+							type:'GET',
+							success : function(data) {
+								var option = '<option value="0">choisir une option</option>';
+								data.forEach(e=>{
+									option += '<option value ='+e.id+'>'+e.nom+'</option>';
+								});
+								
+							$('#zone').html(option);
+							},
+							error : function(jqXHR, textStatus,
+									errorThrown) {
+								console.log(textStatus);
+							}
+							
+						});
+
+
+					 })				
 					
 					
 

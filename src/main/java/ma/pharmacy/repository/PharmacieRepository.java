@@ -19,7 +19,8 @@ public interface PharmacieRepository extends JpaRepository<Pharmacie, Integer> {
 	List<Pharmacie> findAllPharmacieByVille(@Param("id") int id);
 
 
-
+	@Query("select pg.pharmacie from PharmacieDeGarde pg where  pg.garde.idGarde = :id and pg.pharmacie.zone.id = :zone_id")
+	List<Pharmacie> findAllPharmacieEnGardeByGardeId(@Param("id") int id,@Param("zone_id") int zone_id);
 
 
 	

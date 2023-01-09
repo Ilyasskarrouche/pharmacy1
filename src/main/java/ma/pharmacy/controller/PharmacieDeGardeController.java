@@ -65,5 +65,5 @@ public class PharmacieDeGardeController {
 		return repository.count();
 	}
 	
-
+	
 }
